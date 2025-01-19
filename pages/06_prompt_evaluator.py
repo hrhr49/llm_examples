@@ -13,6 +13,10 @@ load_dotenv()
 
 
 def main():
+    if st.session_state.get('page') != __file__:
+        # ページ遷移時に状態を初期化しておく
+        st.session_state.clear()
+        st.session_state.page = __file__
     st.set_page_config(
         page_title="プロンプト相談",
         page_icon="🤗",

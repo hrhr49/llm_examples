@@ -8,6 +8,10 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
+if st.session_state.get('page') != __file__:
+    # ページ遷移時に状態を初期化しておく
+    st.session_state.clear()
+    st.session_state.page = __file__
 
 # Streamlitアプリの設定
 st.title("ソースコードからフローチャートと処理概要を生成するアプリ")

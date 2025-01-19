@@ -8,6 +8,10 @@ from dotenv import load_dotenv
 load_dotenv()
 
 def main():
+    if st.session_state.get('page') != __file__:
+        st.session_state.clear()
+        st.session_state.page = __file__
+
     llm = ChatOpenAI(model="gpt-4o-mini", temperature=0)
 
     st.set_page_config(
